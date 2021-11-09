@@ -1,7 +1,7 @@
 const request = require('request')
 
 const forecast = (latitude, longitude, callback) => {
-    const url = 'http://api.openweathermap.org/data/2.5/weather?lat=' + latitude + '&lon=' + longitude + '&appid=aaf6270c858f9c6888eb0c5a65ccc3b5'
+    const url = 'http://api.openweathermap.org/data/2.5/weather?lat=' + latitude + '&lon=' + longitude + '&appid=aaf6270c858f9c6888eb0c5a65ccc3b5&units=imperial'
 
     request({ url: url, json: true }, (error, { body }) => {
         if (error) {
@@ -14,7 +14,7 @@ const forecast = (latitude, longitude, callback) => {
             // callback(undefined, body.main.temp)
 
             callback(undefined,
-                'It is cuurently ' + body.main.temp + ' degrees out. There is a ' + body.wind.speed + ' wind speed ')
+                'It is currently ' + body.main.temp + ' degrees out. There is a ' + body.wind.speed + ' wind speed ')
         }
 
     })
